@@ -42,7 +42,9 @@ class VacationCreateView(CreateAPIView):
         serializer.save(user=self.request.user)
 
 
+# This api and the next one build auto check in and chek out functionality 
 # /employee/check_in
+# crate WaorkingDetails entry and auto calculate check in time 
 @api_view(['POST'])
 def check_in(request):
     today = datetime.now().date()
@@ -60,6 +62,7 @@ def check_in(request):
 
 
 # /employee/check_out
+# Auto calculate check_out time and add it the entry that have checked in 
 @api_view(['POST'])
 def check_out(request):
     today = datetime.now().date()
